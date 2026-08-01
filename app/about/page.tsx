@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHero } from "../components/PageHero";
+import { SiteFooter } from "../components/SiteFooter";
+
+export const metadata: Metadata = { title: "About Us", description: "Discover the approach and principles behind Divine Luxury Properties." };
+
+export default function AboutPage() {
+  return <main id="top"><PageHero eyebrow="Our story" title="Property is the asset. Trust is the foundation." description="An independent advisory built around informed judgment, personal relationships and an uncompromising standard of care." image="/images/about-home.jpg" />
+    <section className="section shell story-grid"><div><span className="eyebrow">Divine, by design</span><h2>A more considered kind of property advisory.</h2></div><div><p className="large-copy">Divine Luxury Properties began with a simple conviction: clients making significant property decisions deserve advice that is clear, personal and entirely aligned with their interests.</p><p>Today, we advise private clients, families and investors across Dubai’s most sought-after neighbourhoods. Our reach is broad, but our service remains deliberately intimate. One trusted advisor, one accountable team, and no pressure to settle for almost right.</p><p>That independence shapes everything—from the developers we work with to the homes we are willing to recommend.</p></div></section>
+    <section className="image-quote"><img src="/images/interior.jpg" alt="Refined modern residence interior" /><div><span>“</span><blockquote>We measure success in relationships that last well beyond a transaction.</blockquote><p>Founder’s principle</p></div></section>
+    <section className="section shell values-section"><div className="section-heading"><div><span className="eyebrow">What guides us</span><h2>Principles before promises.</h2></div><Link className="text-link" href="/mission">Our mission & vision <span>↗</span></Link></div><div className="values-grid"><article><span>01</span><h3>Discretion</h3><p>Your privacy is never a feature; it is the foundation of our service.</p></article><article><span>02</span><h3>Discernment</h3><p>We edit the market with a trained eye and recommend only what genuinely fits.</p></article><article><span>03</span><h3>Directness</h3><p>Clear advice, honest context and no manufactured urgency.</p></article><article><span>04</span><h3>Detail</h3><p>From first brief to final key, the small things receive our full attention.</p></article></div></section>
+    <section className="simple-cta shell section"><span className="eyebrow">Speak with us</span><h2>Your property journey deserves<br />a thoughtful beginning.</h2><Link className="button button-dark" href="/contact">Arrange a private consultation <span>↗</span></Link></section><SiteFooter /></main>;
+}
