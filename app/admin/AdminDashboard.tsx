@@ -117,10 +117,11 @@ export function AdminDashboard() {
 
   async function seedCatalogue() {
     if (!db) return;
+    const firestore = db;
     setSaving(true);
     try {
-      const batch = writeBatch(db);
-      sampleProperties.forEach((property) => batch.set(doc(db, "properties", property.slug), { ...property, published: true, updatedAt: serverTimestamp() }));
+      const batch = writeBatch(firestore);
+      sampleProperties.forEach((property) => batch.set(doc(firestore, "properties", property.slug), { ...property, published: true, updatedAt: serverTimestamp() }));
       await batch.commit();
       setNotice("The signature catalogue is now live in Firebase.");
       window.setTimeout(() => setNotice(""), 4000);
