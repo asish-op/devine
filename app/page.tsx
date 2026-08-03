@@ -76,7 +76,7 @@ export default function Home() {
 
       <section className="contact-band"><div className="shell contact-band-grid"><div><span className="eyebrow light">A considered next step</span><h2>Let’s find the place<br />that feels inevitable.</h2><p>Tell us what you have in mind. The first conversation is private, unhurried and without obligation.</p></div><EnquiryForm compact source="Home page" /></div></section>
       <SiteFooter />
-      <a className="whatsapp-fab" href="https://wa.me/971567522114" target="_blank" rel="noreferrer" aria-label="Chat with Divine Luxury Properties on WhatsApp"><span>◔</span><em>WhatsApp</em></a>
+      <a className="whatsapp-fab" href="https://wa.me/971567522114" target="_blank" rel="noreferrer" aria-label="Chat with Divine Luxury Properties on WhatsApp"><img src="/images/whatsapp.svg" alt="" aria-hidden="true" /><em>WhatsApp</em></a>
     </main>
   );
 }
