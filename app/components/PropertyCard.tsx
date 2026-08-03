@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { Property } from "../data";
+import { mediaUrl } from "../lib/property-api";
 
 export function PropertyCard({ property, featured = false }: { property: Property; featured?: boolean }) {
   return (
     <article className={`property-card ${featured ? "featured" : ""}`}>
       <Link href={`/properties/${property.slug}`} className="property-image" aria-label={`View ${property.name}`}>
-        <img src={property.image} alt={`${property.name} in ${property.location}`} />
-        <span className="property-status">{property.completion === "Ready" ? "Ready residence" : "New release"}</span>
+        <img src={mediaUrl(property.image)} alt={`${property.name} in ${property.location}`} />
+        <span className="property-status">{property.statusLabel || (property.completion === "Ready" ? "Ready residence" : "New release")}</span>
         <span className="image-arrow">↗</span>
       </Link>
       <div className="property-copy">

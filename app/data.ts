@@ -11,9 +11,24 @@ export type Property = {
   completion: string;
   image: string;
   gallery: string[];
+  video?: string;
+  brochure?: string;
   description: string;
+  secondaryDescription?: string;
+  tagline?: string;
   amenities: string[];
+  floorPlans?: string[];
+  mapQuery?: string;
+  mapEmbedUrl?: string;
+  locationDescription?: string;
+  locationHighlights?: string[];
+  statusLabel?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  featured?: boolean;
   published?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export const properties: Property[] = [

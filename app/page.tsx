@@ -74,7 +74,7 @@ export default function Home() {
         <div className="insights-grid">{insights.map((item) => <article key={item.title}><Link href="/blogs"><img src={item.image} alt="" /></Link><span>{item.category} · {item.date}</span><h3><Link href="/blogs">{item.title}</Link></h3><p>{item.excerpt}</p></article>)}</div>
       </section>
 
-      <section className="contact-band"><div className="shell contact-band-grid"><div><span className="eyebrow light">A considered next step</span><h2>Let’s find the place<br />that feels inevitable.</h2><p>Tell us what you have in mind. The first conversation is private, unhurried and without obligation.</p></div><EnquiryForm compact /></div></section>
+      <section className="contact-band"><div className="shell contact-band-grid"><div><span className="eyebrow light">A considered next step</span><h2>Let’s find the place<br />that feels inevitable.</h2><p>Tell us what you have in mind. The first conversation is private, unhurried and without obligation.</p></div><EnquiryForm compact source="Home page" /></div></section>
       <SiteFooter />
       <a className="whatsapp-fab" href="https://wa.me/97145550188" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><span>◔</span><em>WhatsApp</em></a>
     </main>

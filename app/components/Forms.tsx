@@ -1,22 +1,48 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { submitEnquiry } from "../lib/property-api";
 
-export function EnquiryForm({ title = "Begin a private conversation", compact = false }: { title?: string; compact?: boolean }) {
+export function EnquiryForm({ title = "Begin a private conversation", compact = false, source = "Website", propertyName = "" }: { title?: string; compact?: boolean; source?: string; propertyName?: string }) {
   const [sent, setSent] = useState(false);
-  const submit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSent(true); };
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSending(true);
+    setError("");
+    const form = event.currentTarget;
+    const values = Object.fromEntries(new FormData(form).entries());
+    try {
+      await submitEnquiry({
+        name: String(values.name || ""),
+        email: String(values.email || ""),
+        phone: String(values.phone || ""),
+        interest: String(values.interest || ""),
+        message: String(values.message || ""),
+        website: String(values.website || ""),
+        source,
+        propertyName,
+      });
+      form.reset();
+      setSent(true);
+    } catch (requestError) { setError((requestError as Error).message); }
+    finally { setSending(false); }
+  };
   if (sent) return <div className="form-success"><span>✓</span><h3>Thank you.</h3><p>A private advisor will contact you within one business day.</p><button className="text-link" onClick={() => setSent(false)}>Send another enquiry</button></div>;
   return (
     <form className={`enquiry-form ${compact ? "compact-form" : ""}`} onSubmit={submit}>
       <span className="eyebrow">Private enquiry</span><h2>{title}</h2>
+      <label className="website-trap" aria-hidden="true"><span>Website</span><input name="website" tabIndex={-1} autoComplete="off" /></label>
       <div className="form-grid">
         <label><span>Full name</span><input name="name" autoComplete="name" required placeholder="Your name" /></label>
         <label><span>Email address</span><input name="email" type="email" autoComplete="email" required placeholder="you@example.com" /></label>
         <label><span>Phone number</span><input name="phone" type="tel" autoComplete="tel" required placeholder="+971" /></label>
-        <label><span>I am interested in</span><select name="interest" defaultValue=""><option value="" disabled>Select an option</option><option>Buying a residence</option><option>Selling a property</option><option>Investment advisory</option><option>Relocation support</option></select></label>
+        <label><span>I am interested in</span><select name="interest" required defaultValue=""><option value="" disabled>Select an option</option><option>Buying a residence</option><option>Selling a property</option><option>Investment advisory</option><option>Relocation support</option></select></label>
       </div>
       <label><span>How can we help?</span><textarea name="message" rows={3} placeholder="Tell us what you are looking for" /></label>
-      <button className="button button-gold" type="submit">Request consultation <span>↗</span></button>
+      {error && <p className="form-error" role="alert">{error}</p>}
+      <button className="button button-gold" type="submit" disabled={sending}>{sending ? "Sending enquiry…" : "Request consultation"} <span>↗</span></button>
     </form>
   );
 }
