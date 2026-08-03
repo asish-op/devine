@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { properties, type Property } from "../../data";
+import type { Property } from "../../data";
 import { PropertyDetailClient } from "./PropertyDetailClient";
 
 const apiUrl = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000").replace(/\/$/, "");
@@ -9,7 +9,7 @@ async function getProperty(slug: string): Promise<Property | null> {
     const response = await fetch(`${apiUrl}/api/properties/${encodeURIComponent(slug)}`, { cache: "no-store" });
     if (response.ok) return response.json();
   } catch {}
-  return properties.find((item) => item.slug === slug) || null;
+  return null;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

@@ -62,7 +62,7 @@ export function SiteHeader({ overlay = false }: { overlay?: boolean }) {
         </nav>
         <div className="mobile-menu-lower">
           <Link href="/contact" className="mobile-menu-cta">Contact Us <span>↗</span></Link>
-          <div className="mobile-menu-foot"><span>Dubai, UAE</span><a href="tel:+97145550188">+971 4 555 0188</a></div>
+          <div className="mobile-menu-foot"><span>Dubai, UAE</span><a href="tel:+971567522114">+971 56 752 2114</a></div>
         </div>
       </div>
     </header>

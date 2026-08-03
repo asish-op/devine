@@ -13,7 +13,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-column"><span className="footer-label">Explore</span><Link href="/properties">Properties</Link><Link href="/developers">Developers</Link><Link href="/services">Services</Link><Link href="/blogs">Insights</Link></div>
         <div className="footer-column"><span className="footer-label">Company</span><Link href="/about">About Us</Link><Link href="/mission">Mission & Vision</Link><Link href="/careers">Careers</Link><Link href="/contact">Contact</Link></div>
-        <div className="footer-column contact-column"><span className="footer-label">Private office</span><p>Boulevard Plaza<br />Downtown Dubai, UAE</p><a href="tel:+97145550188">+971 4 555 0188</a><a href="mailto:enquiries@divineluxury.ae">enquiries@divineluxury.ae</a></div>
+        <div className="footer-column contact-column"><span className="footer-label">Private office</span><p>Boulevard Plaza<br />Downtown Dubai, UAE</p><a href="tel:+971567522114">+971 56 752 2114</a><a href="mailto:contact@dlpdxb.com">contact@dlpdxb.com</a></div>
       </div>
       <div className="footer-bottom shell"><span>© 2026 Divine Luxury Properties</span><div><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">YouTube</a></div><Link href="#top">Back to top ↑</Link></div>
     </footer>

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
-import { LivePropertyGrid } from "./components/LivePropertyGrid";
+import { FeaturedPropertyAside, LivePropertyGrid } from "./components/LivePropertyGrid";
 import { EnquiryForm } from "./components/Forms";
-import { insights, properties } from "./data";
+import { insights } from "./data";
 
 const featuredPartnerLogos = [
   { name: "Emaar", logo: "emaar", href: "/developers/emaar" },
@@ -28,7 +28,7 @@ export default function Home() {
             <p>Inventive solutions, personalised experiences and steadfast support for every property journey.</p>
             <div className="hero-actions"><Link href="/properties" className="button button-gold">Explore residences <span>↗</span></Link><Link href="/contact" className="button button-ghost">Speak with an advisor</Link></div>
           </div>
-          <div className="hero-aside"><span>01 / 04</span><p>Celeste Residences<br /><strong>Dubai Hills Estate</strong></p></div>
+          <FeaturedPropertyAside />
         </div>
         <a href="#introduction" className="scroll-cue" aria-label="Scroll to introduction"><span>Scroll</span><i /></a>
       </section>
@@ -45,7 +45,7 @@ export default function Home() {
 
       <section className="section properties-section">
         <div className="shell section-heading"><div><span className="eyebrow">Selected portfolio</span><h2>Homes of distinction</h2></div><p>A concise edit of residences chosen for architecture, position and enduring value.</p><Link className="text-link" href="/properties">View all properties <span>↗</span></Link></div>
-        <LivePropertyGrid fallback={properties} limit={3} className="home-properties shell" />
+        <LivePropertyGrid limit={3} className="home-properties shell" />
       </section>
 
       <section className="editorial-split">
@@ -76,7 +76,7 @@ export default function Home() {
 
       <section className="contact-band"><div className="shell contact-band-grid"><div><span className="eyebrow light">A considered next step</span><h2>Let’s find the place<br />that feels inevitable.</h2><p>Tell us what you have in mind. The first conversation is private, unhurried and without obligation.</p></div><EnquiryForm compact source="Home page" /></div></section>
       <SiteFooter />
-      <a className="whatsapp-fab" href="https://wa.me/97145550188" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><span>◔</span><em>WhatsApp</em></a>
+      <a className="whatsapp-fab" href="https://wa.me/971567522114" target="_blank" rel="noreferrer" aria-label="Chat with Divine Luxury Properties on WhatsApp"><span>◔</span><em>WhatsApp</em></a>
     </main>
   );
 }
